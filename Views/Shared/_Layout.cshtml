@@ -1,13 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - Simple Blog</title>
+    @Styles.Render("~/styles")
 </head>
 <body>
     <header>
         <h1>@Html.RouteLink("Simple Blog", "home")</h1>
+        <i class="glyphicon glyphicon-hand-up"></i>
 
         @if (User.Identity.IsAuthenticated)
         {
@@ -23,7 +26,6 @@
         {
             @Html.RouteLink("Login", "login")
         }
-        
     </header>
 
     @RenderBody()
@@ -32,6 +34,7 @@
         &copy; @DateTime.UtcNow.Year - me
     </footer>
 
+    @Scripts.Render("~/scripts")
     @RenderSection("Scripts", false)
 </body>
 </html>
