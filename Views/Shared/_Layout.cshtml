@@ -8,7 +8,22 @@
 <body>
     <header>
         <h1>@Html.RouteLink("Simple Blog", "home")</h1>
-        @Html.RouteLink("Login", "login")
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Welcome back, @User.Identity.Name</p>
+            @Html.RouteLink("Logout", "logout")
+
+            if (User.IsInRole("admin"))
+            {
+               <a href="@Url.Action("index", "Posts", new{area="admin"})">View posts in admin</a>
+            }
+        }
+        else
+        {
+            @Html.RouteLink("Login", "login")
+        }
+        
     </header>
 
     @RenderBody()
