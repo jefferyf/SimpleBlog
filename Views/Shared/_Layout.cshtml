@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Simple Blog</title>
+</head>
+<body>
+    <header>
+        <h1>@Html.RouteLink("Simple Blog", "home")</h1>
+        @Html.RouteLink("Login", "login")
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        &copy; @DateTime.UtcNow.Year - me
+    </footer>
+
+    @RenderSection("Scripts", false);
+</body>
+</html>
