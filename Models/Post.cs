@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using NHibernate.Mapping.ByCode;
-
 namespace SimpleBlog.Models
 {
     public class Post
@@ -45,7 +43,7 @@ namespace SimpleBlog.Models
 
             Property(x => x.CreatedAt, x =>
             {
-                x.Column("creatred_at");
+                x.Column("created_at");
                 x.NotNullable(true);
             });
             Property(x => x.UpdatedAt, x => x.Column("updated_at"));

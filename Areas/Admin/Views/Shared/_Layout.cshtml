@@ -20,19 +20,26 @@
 </head>
 <body>
     <div class="container">
-        <ul class="nav nav-pills">
-            <li class="@SelectedTabClass("posts")">
-                @Html.ActionLink("Posts", "Index", "Posts", new { area = "admin" }, new { })
-            </li>
-            <li class="@SelectedTabClass("users")">
-                @Html.ActionLink("Users", "Index", "Users", new { area = "admin" }, new { })
-            </li>
-            <li class="pull-right">
-                @Html.RouteLink("Back to Website", "Home")
-            </li>
-        </ul>
-
-        @RenderBody()
+        <div class="row">
+            <div class="span2">
+                <!--Sidebar content-->
+                <ul class="nav nav-pills">
+                    <li class="@SelectedTabClass("posts")">
+                        @Html.ActionLink("Posts", "Index", "Posts", new { area = "admin" }, new { })
+                    </li>
+                    <li class="@SelectedTabClass("users")">
+                        @Html.ActionLink("Users", "Index", "Users", new { area = "admin" }, new { })
+                    </li>
+                    <li class="pull-right">
+                        @Html.RouteLink("Back to Website", "Home")
+                    </li>
+                </ul>
+            </div>
+            <div class="span10">
+                <!--Body content-->
+                @RenderBody()
+            </div>
+        </div>
     </div>
 
     @Scripts.Render("~/admin/scripts")
